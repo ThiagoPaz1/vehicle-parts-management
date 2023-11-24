@@ -6,7 +6,9 @@ import {
   Patch,
   Param,
   Delete,
+  Req,
 } from '@nestjs/common';
+import { Request } from 'express';
 import { PartsService } from './parts.service';
 import { CreatePartDto } from './dto/create-part.dto';
 import { UpdatePartDto } from './dto/update-part.dto';
@@ -21,8 +23,11 @@ export class PartsController {
   }
 
   @Get()
-  findAll() {
-    return this.partsService.findAll();
+  findAll(@Req() req: Request) {
+    const skip = Number(req.query?.skip);
+    const take = Number(req.query?.take);
+
+    return this.partsService.findAll(skip, take);
   }
 
   @Get(':id')

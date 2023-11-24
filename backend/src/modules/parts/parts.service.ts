@@ -11,8 +11,11 @@ export class PartsService {
     return await this.partsRepository.create(createPartDto);
   }
 
-  findAll() {
-    return `This action returns all parts`;
+  async findAll(skip?: number, take?: number) {
+    skip = skip ? skip : 0;
+    take = take ? take : 0;
+
+    return await this.partsRepository.getAll(skip, take);
   }
 
   findOne(id: number) {

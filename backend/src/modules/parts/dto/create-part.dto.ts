@@ -6,7 +6,7 @@ export class CreatePartDto {
   name: string;
 
   @IsNotEmpty()
-  @IsNumber()
+  @IsString()
   brand: string;
 
   @IsNotEmpty()
