@@ -1,11 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { CreatePartDto } from './dto/create-part.dto';
 import { UpdatePartDto } from './dto/update-part.dto';
+import { PartsRepository } from './product.repository';
 
 @Injectable()
 export class PartsService {
-  create(createPartDto: CreatePartDto) {
-    return 'This action adds a new part';
+  constructor(private partsRepository: PartsRepository) {}
+
+  async create(createPartDto: CreatePartDto) {
+    return await this.partsRepository.create(createPartDto);
   }
 
   findAll() {
