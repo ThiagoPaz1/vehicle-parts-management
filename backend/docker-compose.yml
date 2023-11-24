@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  database:
+    image: postgres
+    container_name: database
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: vehicle_parts_db
+    ports:
+      - 5433:5432
