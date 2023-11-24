@@ -8,6 +8,3 @@ CREATE TABLE "parts" (
 
     CONSTRAINT "parts_pkey" PRIMARY KEY ("id")
 );
-
--- CreateIndex
-CREATE UNIQUE INDEX "parts_name_key" ON "parts"("name");
